@@ -1,0 +1,103 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX101711DS-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.1
+ encapsulation dot1Q 140
+ ip address 10.122.224.1 255.255.255.128
+!
+interface FastEthernet0/0.2
+ encapsulation dot1Q 141
+ ip address 10.122.225.1 255.255.255.192
+!
+interface FastEthernet0/0.3
+ encapsulation dot1Q 142
+ ip address 10.122.225.65 255.255.255.192
+!
+interface FastEthernet0/0.4
+ encapsulation dot1Q 143
+ ip address 10.122.225.129 255.255.255.224
+!
+interface FastEthernet0/0.5
+ encapsulation dot1Q 144
+ ip address 10.122.224.129 255.255.255.128
+!
+interface FastEthernet0/0.6
+ encapsulation dot1Q 145
+ ip address 10.122.225.161 255.255.255.224
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router rip
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+

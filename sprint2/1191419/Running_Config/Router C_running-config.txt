@@ -1,0 +1,115 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX1017I02J-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.1
+ encapsulation dot1Q 151
+ ip address 10.122.229.1 255.255.255.192
+!
+interface FastEthernet0/0.2
+ encapsulation dot1Q 152
+ ip address 10.122.229.65 255.255.255.192
+!
+interface FastEthernet0/0.3
+ encapsulation dot1Q 153
+ ip address 10.122.229.129 255.255.255.192
+!
+interface FastEthernet0/0.4
+ encapsulation dot1Q 154
+ ip address 10.122.228.1 255.255.255.0
+!
+interface FastEthernet0/0.5
+ encapsulation dot1Q 155
+ ip address 10.122.229.193 255.255.255.192
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router rip
+!
+ip classless
+ip route 10.122.231.128 255.255.255.192 10.122.224.1 
+ip route 10.122.231.64 255.255.255.192 10.122.224.1 
+ip route 10.122.231.0 255.255.255.192 10.122.224.1 
+ip route 10.122.230.0 255.255.255.0 10.122.224.1 
+ip route 10.122.231.192 255.255.255.224 10.122.224.1 
+ip route 10.122.224.0 255.255.255.128 10.122.224.1 
+ip route 10.122.225.0 255.255.255.192 10.122.224.1 
+ip route 10.122.225.64 255.255.255.192 10.122.224.1 
+ip route 10.122.225.128 255.255.255.224 10.122.224.1 
+ip route 10.122.224.128 255.255.255.128 10.122.224.1 
+ip route 10.122.225.160 255.255.255.224 10.122.224.1 
+ip route 10.122.227.0 255.255.255.192 10.122.224.1 
+ip route 10.122.226.128 255.255.255.128 10.122.224.1 
+ip route 10.122.226.0 255.255.255.128 10.122.224.1 
+ip route 10.122.227.128 255.255.255.240 10.122.224.1 
+ip route 10.122.227.64 255.255.255.192 10.122.224.1 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
